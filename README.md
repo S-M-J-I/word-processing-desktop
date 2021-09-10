@@ -6,6 +6,7 @@
     <li>Java</li>
     <li>FXML</li>
     <li>JavaFX</li>
+    <li>SceneBuilder (a tool used to speed up frontend so I can concentrate on the backend)</li>
 </ul>
 
 <h>Features:</h3>
