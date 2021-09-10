@@ -1,4 +1,4 @@
-module Diary {
+module Word.Processing {
     requires javafx.controls;
     requires javafx.graphics;
     requires javafx.fxml;
