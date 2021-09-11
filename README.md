@@ -11,7 +11,8 @@
 
 <h>Features:</h3>
 <ul>
-    yet to add
+    <li>Change font size and font weight</li>
+    <li>Change font family (restricted list)</li>
 </ul>
 
 <span><i>Created by S M Jishanul Islam</i></span>

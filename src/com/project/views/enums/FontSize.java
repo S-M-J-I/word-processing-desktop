@@ -1,4 +1,4 @@
-package com.project.views;
+package com.project.views.enums;
 
 public enum FontSize {
     SMALL,
@@ -8,13 +8,13 @@ public enum FontSize {
     public static String getCSSPath(FontSize fontSize) {
         switch (fontSize) {
             case SMALL -> {
-                return "css/fontSmall.css";
+                return "css/font_size/fontSmall.css";
             }
             case MEDIUM -> {
-                return "css/fontMedium.css";
+                return "css/font_size/fontMedium.css";
             }
             case LARGE -> {
-                return "css/fontBig.css";
+                return "css/font_size/fontBig.css";
             }
             default -> {
                 return null;

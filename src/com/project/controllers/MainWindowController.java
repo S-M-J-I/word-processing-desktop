@@ -1,7 +1,8 @@
 package com.project.controllers;
 
-import com.project.views.FontSize;
-import com.project.views.FontWeight;
+import com.project.views.enums.FontFamily;
+import com.project.views.enums.FontSize;
+import com.project.views.enums.FontWeight;
 import com.project.views.ViewFactory;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -28,16 +29,25 @@ public class MainWindowController extends BaseController implements Initializabl
         fontWeightPicker.setValue(super.getViewFactory().getFontWeight());
     }
 
+    private void setFontFamilyPicker() {
+        fontFamilyPicker.setItems(FXCollections.observableArrayList(FontFamily.values()));
+        fontFamilyPicker.setValue(super.getViewFactory().getFontFamily());
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setUpFontSizePicker();
         setFontWeightPicker();
+        setFontFamilyPicker();
     }
+
+
 
     @FXML
     void applyStyles(ActionEvent event) {
         super.getViewFactory().setFontSize(fontSizePicker.getValue());
         super.getViewFactory().setFontWeight(fontWeightPicker.getValue());
+        super.getViewFactory().setFontFamily(fontFamilyPicker.getValue());
         super.getViewFactory().updateStyles();
     }
 
@@ -46,6 +56,9 @@ public class MainWindowController extends BaseController implements Initializabl
 
     @FXML
     private ChoiceBox<FontWeight> fontWeightPicker;
+
+    @FXML
+    private ChoiceBox<FontFamily> fontFamilyPicker;
 
     @FXML
     void onAboutButtonAction(ActionEvent event) {

@@ -3,6 +3,9 @@ package com.project.views;
 import com.project.controllers.BaseController;
 import com.project.controllers.MainWindowController;
 import com.project.controllers.WelcomeWindowController;
+import com.project.views.enums.FontFamily;
+import com.project.views.enums.FontSize;
+import com.project.views.enums.FontWeight;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,6 +19,8 @@ public class ViewFactory {
 
     private FontSize fontSize = FontSize.MEDIUM;
     private FontWeight fontWeight = FontWeight.NORMAL;
+    private FontFamily fontFamily = FontFamily.Calibri;
+
     private ArrayList<Stage> activeStages;
 
     public ViewFactory() {
@@ -36,6 +41,14 @@ public class ViewFactory {
 
     public void setFontWeight(FontWeight fontWeight) {
         this.fontWeight = fontWeight;
+    }
+
+    public FontFamily getFontFamily() {
+        return fontFamily;
+    }
+
+    public void setFontFamily(FontFamily fontFamily) {
+        this.fontFamily = fontFamily;
     }
 
     public void welcomeWindow(){
@@ -79,6 +92,7 @@ public class ViewFactory {
             scene.getStylesheets().clear();
             scene.getStylesheets().add(getClass().getResource(FontWeight.getCSSPath(fontWeight)).toExternalForm());
             scene.getStylesheets().add(getClass().getResource(FontSize.getCSSPath(fontSize)).toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(FontFamily.getCSSPath(fontFamily)).toExternalForm());
         }
     }
 }

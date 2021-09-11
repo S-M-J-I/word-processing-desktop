@@ -40,6 +40,8 @@
             <ChoiceBox fx:id="fontSizePicker" prefHeight="26.0" prefWidth="79.0" />
             <Label text="      Font Weight" />
             <ChoiceBox fx:id="fontWeightPicker" prefHeight="26.0" prefWidth="80.0" />
+            <Label text="      Font Family" />
+            <ChoiceBox fx:id="fontFamilyPicker" prefHeight="26.0" prefWidth="137.0" />
             <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#applyStyles" text="Apply" />
          </items>
       </ToolBar>

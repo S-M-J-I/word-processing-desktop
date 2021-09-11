@@ -1,4 +1,4 @@
-package com.project.views;
+package com.project.views.enums;
 
 public enum FontWeight {
     LIGHT,
@@ -8,13 +8,13 @@ public enum FontWeight {
     public static String getCSSPath(FontWeight fontWeight) {
         switch (fontWeight) {
             case LIGHT -> {
-                return "css/fontWeightLight.css";
+                return "css/font_weight/fontWeightLight.css";
             }
             case NORMAL -> {
-                return "css/fontWeightMedium.css";
+                return "css/font_weight/fontWeightMedium.css";
             }
             case BOLD -> {
-                return "css/fontWeightBold.css";
+                return "css/font_weight/fontWeightBold.css";
             }
             default -> {
                 return null;
