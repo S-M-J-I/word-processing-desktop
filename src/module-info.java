@@ -8,4 +8,5 @@ module Word.Processing {
     opens com.project;
     opens com.project.controllers;
     opens com.project.views;
+    opens com.project.views.css;
 }

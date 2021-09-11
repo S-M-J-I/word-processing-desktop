@@ -35,6 +35,13 @@ public class MainWindowController extends BaseController implements Initializabl
     }
 
     @FXML
+    void applyStyles(ActionEvent event) {
+        super.getViewFactory().setFontSize(fontSizePicker.getValue());
+        super.getViewFactory().setFontWeight(fontWeightPicker.getValue());
+        super.getViewFactory().updateStyles();
+    }
+
+    @FXML
     private ChoiceBox<FontSize> fontSizePicker;
 
     @FXML

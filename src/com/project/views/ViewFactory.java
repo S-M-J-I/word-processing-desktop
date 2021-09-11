@@ -9,12 +9,18 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ViewFactory {
 
 
     private FontSize fontSize = FontSize.MEDIUM;
     private FontWeight fontWeight = FontWeight.NORMAL;
+    private ArrayList<Stage> activeStages;
+
+    public ViewFactory() {
+        this.activeStages = new ArrayList<>();
+    }
 
     public FontSize getFontSize() {
         return fontSize;
@@ -44,6 +50,7 @@ public class ViewFactory {
 
     public void closeWindow(Stage stage) {
         stage.close();
+        activeStages.remove(stage);
     }
 
     private void initWindow(BaseController controller, String title){
@@ -63,5 +70,15 @@ public class ViewFactory {
         stage.setTitle(title);
         stage.setScene(scene);
         stage.show();
+        activeStages.add(stage);
+    }
+
+    public void updateStyles() {
+        for(Stage stage : activeStages) {
+            Scene scene = stage.getScene();
+            scene.getStylesheets().clear();
+            scene.getStylesheets().add(getClass().getResource(FontWeight.getCSSPath(fontWeight)).toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(FontSize.getCSSPath(fontSize)).toExternalForm());
+        }
     }
 }
