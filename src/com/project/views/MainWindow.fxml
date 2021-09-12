@@ -33,7 +33,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextArea layoutY="61.0" prefHeight="340.0" prefWidth="600.0" styleClass="txtarea" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="61.0" />
+      <TextArea fx:id="txtarea" layoutY="61.0" prefHeight="340.0" prefWidth="600.0" styleClass="txtarea" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="61.0" />
       <ToolBar layoutY="26.0" prefHeight="35.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0">
          <items>
             <Label text="Font Size" />

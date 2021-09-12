@@ -5,12 +5,20 @@ import com.project.views.enums.FontSize;
 import com.project.views.enums.FontWeight;
 import com.project.views.ViewFactory;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class MainWindowController extends BaseController implements Initializable {
@@ -61,6 +69,9 @@ public class MainWindowController extends BaseController implements Initializabl
     private ChoiceBox<FontFamily> fontFamilyPicker;
 
     @FXML
+    private TextArea txtarea;
+
+    @FXML
     void onAboutButtonAction(ActionEvent event) {
 
     }
@@ -81,8 +92,20 @@ public class MainWindowController extends BaseController implements Initializabl
     }
 
     @FXML
-    void onSaveButtonAction(ActionEvent event) {
+    void onSaveButtonAction(ActionEvent event) throws IOException {
+        ObservableList<CharSequence> textParagraph = txtarea.getParagraphs();
+        Iterator<CharSequence> itr = textParagraph.iterator();
+        Stage stage = (Stage) fontFamilyPicker.getScene().getWindow();
+        String documentName = stage.getTitle();
+        BufferedWriter writer = new BufferedWriter(new FileWriter(new File(documentName+".txt")));
+        while (itr.hasNext()){
+            CharSequence chars = itr.next();
+            writer.append(chars);
+            writer.newLine();
+        }
 
+        writer.flush();
+        writer.close();
     }
 
 }

@@ -56,9 +56,9 @@ public class ViewFactory {
         initWindow(controller, "Welcome");
     }
 
-    public void showMainWindow() {
+    public void showMainWindow(String title) {
         BaseController controller = new MainWindowController(this, "MainWindow.fxml");
-        initWindow(controller, "Document");
+        initWindow(controller, title);
     }
 
     public void closeWindow(Stage stage) {
