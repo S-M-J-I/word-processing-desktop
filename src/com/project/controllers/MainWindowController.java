@@ -95,9 +95,7 @@ public class MainWindowController extends BaseController implements Initializabl
     void onSaveButtonAction(ActionEvent event) throws IOException {
         ObservableList<CharSequence> textParagraph = txtarea.getParagraphs();
         Iterator<CharSequence> itr = textParagraph.iterator();
-        Stage stage = (Stage) fontFamilyPicker.getScene().getWindow();
-        String documentName = stage.getTitle();
-        BufferedWriter writer = new BufferedWriter(new FileWriter(new File(documentName+".txt")));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(new File(super.getViewFactory().getDocument().getName()+".txt")));
         while (itr.hasNext()){
             CharSequence chars = itr.next();
             writer.append(chars);

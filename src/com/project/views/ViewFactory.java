@@ -3,6 +3,7 @@ package com.project.views;
 import com.project.controllers.BaseController;
 import com.project.controllers.MainWindowController;
 import com.project.controllers.WelcomeWindowController;
+import com.project.models.Document;
 import com.project.views.enums.FontFamily;
 import com.project.views.enums.FontSize;
 import com.project.views.enums.FontWeight;
@@ -16,6 +17,15 @@ import java.util.ArrayList;
 
 public class ViewFactory {
 
+    private Document document = new Document();
+
+    public Document getDocument() {
+        return document;
+    }
+
+    public void setDocument(Document document) {
+        this.document = document;
+    }
 
     private FontSize fontSize = FontSize.MEDIUM;
     private FontWeight fontWeight = FontWeight.NORMAL;
@@ -58,7 +68,8 @@ public class ViewFactory {
 
     public void showMainWindow(String title) {
         BaseController controller = new MainWindowController(this, "MainWindow.fxml");
-        initWindow(controller, title);
+        this.document = new Document(title);
+        initWindow(controller, document.getName());
     }
 
     public void closeWindow(Stage stage) {
